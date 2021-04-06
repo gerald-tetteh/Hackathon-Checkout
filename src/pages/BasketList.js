@@ -59,7 +59,7 @@ const BasketListPage = () => {
       <h2 className="basket-list-heading">Items in Basket</h2>
       <div className="basket-list-items">
         {purchasedItems.map((item) => {
-          return <BasketListItem basketItem={item} />;
+          return <BasketListItem basketItem={item} key={item.imageUrl} />;
         })}
       </div>
       <DefaultButton text="proceed" />

@@ -6,16 +6,14 @@
 
 /* basket list container & heading */
 .basket-list {
-  position: absolute;
   background: #f7f7f7;
-  top: 55%;
-  left: 50%;
   max-width: 700px;
   width: 100%;
-  transform: translate(-50%,-50%);
   border-radius: 8px;
   padding: 1.2rem;
   color: #f7f7f7;
+  align-self: center;
+  margin: auto;
 }
 .basket-list-heading {
   font-family: 'Quicksand', sans-serif;
@@ -57,4 +55,18 @@
   margin-left: auto;
   color: #795548;
   align-self: center;
+}
+
+/* media queries */
+@media only screen and (min-width: 992px) {
+  .basket-list {
+    max-width: 900px;
+  }
+  .basket-list-items {
+    max-height: 600px;
+  }
+  .basket-list--item-image-container img {
+    height: 70px;
+    width: 70px;
+  }
 }
