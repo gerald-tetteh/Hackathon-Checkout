@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+/* 
+  Author: Gerald Addo-Tetteh
+  Checkout App
+  App js
+*/
+
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Navbar from "./components/Navbar";
+
+import "./css/app.css";
+import BasketListPage from "./pages/BasketList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route exact path="/">
+          <BasketListPage />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

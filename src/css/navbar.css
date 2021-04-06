@@ -1,0 +1,17 @@
+/* 
+  Author: Gerald Addo-Tetteh
+  Checkout App
+*/
+/* Navbar styles */
+
+.navbar {
+  width: 100%;
+  padding: 10px;
+}
+.navbar-title {
+  text-align: center;
+  color: #f7f7f7;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}

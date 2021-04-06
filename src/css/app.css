@@ -1,0 +1,58 @@
+/* 
+  Author: Gerald Addo-Tetteh
+  Checkout App
+*/
+/* App css file with global styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap');
+/* global attribute styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  height: 100%;
+  font-size: 62.5%;
+}
+body {
+  height: 100%;
+  background: url("../assets/background-img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  font-size: 1.3rem;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  padding: 1rem;
+}
+
+/* global classes */
+#root {
+  height: 100%;
+  position: relative;
+}
+.btn-container {
+  text-align: center;
+  max-width: 200px;
+  width: 100%;
+  margin: 1rem auto;
+}
+.btn:link, .btn:visited {
+  display: inline-block;
+  text-decoration: none;
+  padding: 1rem;
+  background: #795548;
+  width: 100%;
+  border-radius: 10px;
+}
+.btn-text {
+  display: inline-block;
+  color: #f7f7f7;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: 'Quicksand', sans-serif;
+}
