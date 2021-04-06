@@ -1,0 +1,72 @@
+/* 
+  Author: Gerald Addo-Tetteh
+  Checkout App
+*/
+/* Basket list page css file */
+
+/* basket list container & heading */
+.basket-list {
+  background: #f7f7f7;
+  max-width: 700px;
+  width: 100%;
+  border-radius: 8px;
+  padding: 1.2rem;
+  color: #f7f7f7;
+  align-self: center;
+  margin: auto;
+}
+.basket-list-heading {
+  font-family: 'Quicksand', sans-serif;
+  color: #795548;
+}
+
+/* basket list items */
+.basket-list-items {
+  margin: 1rem 0;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+.basket-list--item {
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+.basket-list--item-image-container img {
+  height: 40px;
+  width: 40px;
+  border-radius: 3000px;
+  margin-right: 1rem;
+}
+.basket-list--item-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #795548;
+}
+.basket-list--item-name {
+  font-size: 1.6rem;
+  margin-bottom: 5px;
+}
+.basket-list--item-quantity {
+  font-size: 1rem;
+}
+.basket-list--item-price {
+  margin-left: auto;
+  color: #795548;
+  align-self: center;
+}
+
+/* media queries */
+@media only screen and (min-width: 992px) {
+  .basket-list {
+    max-width: 900px;
+  }
+  .basket-list-items {
+    max-height: 600px;
+  }
+  .basket-list--item-image-container img {
+    height: 70px;
+    width: 70px;
+  }
+}
