@@ -7,36 +7,49 @@
 import { motion, useAnimation } from "framer-motion";
 import { useState } from "react";
 import DefaultButton from "../components/DefaultButton";
+import DropdownMenuItems from "../components/DropdownMenuItems";
 
 import "../css/paymentMethodPage.css";
 
 const PaymentMethod = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState("Select Method");
+  const [modeAndNetwork, setModeAndNetwork] = useState("");
   const listControls = useAnimation();
   const arrowControls = useAnimation();
 
+  const handleOpenDropdown = () => {
+    listControls.start({
+      opacity: 1,
+      height: "auto",
+    });
+    arrowControls.start({
+      rotate: 180,
+      scale: 2,
+    });
+  };
+  const handleCloseDropdown = () => {
+    listControls.start({
+      opacity: 0,
+      height: 0,
+      transition: { duration: 0.3 },
+    });
+    arrowControls.start({
+      rotate: 0,
+      scale: 2,
+    });
+  };
   const toggleDropdown = (isOpen) => {
     if (!isOpen) {
-      listControls.start({
-        opacity: 1,
-        height: "auto",
-      });
-      arrowControls.start({
-        rotate: 180,
-        scale: 2,
-      });
+      handleOpenDropdown();
     } else {
-      listControls.start({
-        opacity: 0,
-        height: 0,
-        transition: { duration: 0.3 },
-      });
-      arrowControls.start({
-        rotate: 0,
-        scale: 2,
-      });
+      handleCloseDropdown();
     }
     setIsOpen(!isOpen);
+  };
+  const handleItemOnClick = (e) => {
+    setPaymentMethod(e.target.innerText);
+    handleCloseDropdown();
   };
 
   const listItems = [
@@ -61,29 +74,19 @@ const PaymentMethod = () => {
           className="payment-method-dropdown-textBox"
           onClick={() => toggleDropdown(isOpen)}
         >
-          <span>Select Method</span>
+          <span>{paymentMethod}</span>
           <motion.span animate={arrowControls} transition={{ duration: 0.7 }}>
             &#8609;
           </motion.span>
         </div>
         {/* Dropdown list items */}
-        <motion.ul animate={listControls} transition={{ duration: 0.1 }}>
-          {listItems.map((item, index) => {
-            return (
-              <motion.li
-                id={item.id}
-                className="payment-method-dropdown--item"
-                key={index}
-                animate={listControls}
-                transition={{ duration: 0.1, delay: index * 0.1 }}
-              >
-                {item.text}
-              </motion.li>
-            );
-          })}
-        </motion.ul>
+        <DropdownMenuItems
+          listControls={listControls}
+          listItems={listItems}
+          itemOnClick={handleItemOnClick}
+        />
       </div>
-      <DefaultButton to="#" text="Next &#8594;" />
+      <DefaultButton to={`/checkout/${modeAndNetwork}`} text="Next &#8594;" />
     </motion.div>
   );
 };
