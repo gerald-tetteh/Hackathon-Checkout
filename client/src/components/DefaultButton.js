@@ -6,10 +6,10 @@
 
 import { Link } from "react-router-dom";
 
-const DefaultButton = ({ text }) => {
+const DefaultButton = ({ text, to }) => {
   return (
     <div className="btn-container">
-      <Link to="/" className="btn">
+      <Link to={to} className="btn">
         <p className="btn-text">{text}</p>
       </Link>
     </div>

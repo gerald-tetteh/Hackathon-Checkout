@@ -1,8 +1,10 @@
 /* 
   Author: Gerald Addo-Tetteh
   Checkout App
-  BasketList App
+  BasketList Page
 */
+
+import { motion } from "framer-motion";
 
 import BasketListItem from "../components/BasketListItem";
 import DefaultButton from "../components/DefaultButton";
@@ -55,15 +57,26 @@ const purchasedItems = [
 
 const BasketListPage = () => {
   return (
-    <div className="basket-list">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.7 }}
+      className="basket-list"
+    >
       <h2 className="basket-list-heading">Items in Basket</h2>
       <div className="basket-list-items">
-        {purchasedItems.map((item) => {
-          return <BasketListItem basketItem={item} key={item.imageUrl} />;
+        {purchasedItems.map((item, index) => {
+          return (
+            <BasketListItem
+              basketItem={item}
+              key={item.imageUrl}
+              index={index}
+            />
+          );
         })}
       </div>
-      <DefaultButton text="proceed" />
-    </div>
+      <DefaultButton text="proceed" to="/payment-method" />
+    </motion.div>
   );
 };
 

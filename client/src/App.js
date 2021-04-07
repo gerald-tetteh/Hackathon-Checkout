@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 
 import "./css/app.css";
 import BasketListPage from "./pages/BasketList";
+import PaymentMethod from "./pages/PaymentMethod";
 
 function App() {
   return (
@@ -18,7 +19,11 @@ function App() {
         <Route exact path="/">
           <BasketListPage />
         </Route>
+        <Route exact path="/payment-method">
+          <PaymentMethod />
+        </Route>
       </Switch>
+      <div className="spacer"></div>
     </Router>
   );
 }
