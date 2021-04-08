@@ -18,6 +18,7 @@ html {
   font-size: 62.5%;
 }
 body {
+  position: relative;
   color: #f7f7f7;
   height: 100%;
   font-size: 1.3rem;
@@ -65,6 +66,18 @@ body {
   text-transform: uppercase;
   font-weight: 700;
   font-family: 'Quicksand', sans-serif;
+}
+.snackbar {
+  position: absolute;
+  width: 90%;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background-color: #795548;
+  color: #f7f7f7;
+  padding: 1rem;
+  border-radius: 0.5rem;
 }
 div.spacer {
   padding-top: 2rem;

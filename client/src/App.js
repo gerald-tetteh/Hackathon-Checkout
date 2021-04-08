@@ -5,25 +5,30 @@
 */
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navbar from "./components/Navbar";
 
 import "./css/app.css";
 import BasketListPage from "./pages/BasketList";
 import PaymentMethod from "./pages/PaymentMethod";
+import SnackBar from "./components/SnackBar";
+import Navbar from "./components/Navbar";
+import { SnackbarStore } from "./providers/Store";
 
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Switch>
-        <Route exact path="/">
-          <BasketListPage />
-        </Route>
-        <Route exact path="/payment-method">
-          <PaymentMethod />
-        </Route>
-      </Switch>
-      <div className="spacer"></div>
+      <SnackbarStore>
+        <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <BasketListPage />
+          </Route>
+          <Route exact path="/payment-method">
+            <PaymentMethod />
+          </Route>
+        </Switch>
+        <div className="spacer"></div>
+        <SnackBar />
+      </SnackbarStore>
     </Router>
   );
 }

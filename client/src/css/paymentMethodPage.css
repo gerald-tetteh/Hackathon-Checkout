@@ -46,6 +46,7 @@
   font-weight: 300;
   font-size: 1.2rem;
   background-color: #f7f7f7;
+  display: none;
 }
 .payment-method-dropdown ul li:hover {
   color: #f7f7f7;
@@ -53,6 +54,7 @@
   cursor: pointer;
 }
 .payment-method-dropdown ul {
+  display: none;
   opacity: 0;
   height: 0;
   border: 2px solid #a1887f;
