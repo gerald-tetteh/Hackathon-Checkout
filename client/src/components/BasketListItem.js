@@ -4,9 +4,16 @@
   BasketListItem Component
 */
 
-const BasketListItem = ({ basketItem: item }) => {
+import { motion } from "framer-motion";
+
+const BasketListItem = ({ basketItem: item, index }) => {
   return (
-    <div className="basket-list--item">
+    <motion.div
+      initial={{ opacity: 0, translateX: -1000 }}
+      transition={{ duration: 1, delay: index * 0.3 }}
+      animate={{ opacity: 1, translateX: 0 }}
+      className="basket-list--item"
+    >
       <div className="basket-list--item-image-container">
         <img src={item.imageUrl} alt={item.itemName} />
       </div>
@@ -19,7 +26,7 @@ const BasketListItem = ({ basketItem: item }) => {
       <div className="basket-list--item-price">
         <span>GH&#8373; {item.itemPrice}</span>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

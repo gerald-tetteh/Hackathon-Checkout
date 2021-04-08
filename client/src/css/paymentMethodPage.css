@@ -1,0 +1,62 @@
+/* 
+  Author: Gerald Addo-Tetteh
+  Checkout App
+*/
+/* CSS file for payment method */
+
+/* page container */
+.payment-method {
+  margin: auto;
+  align-self: center;
+}
+.payment-method-heading {
+  font-weight: 700;
+  font-size: 2.1rem;
+  color: #5d4037;
+  margin-bottom: 1rem;
+}
+.payment-method-dropdown {
+  color: black;
+  margin-bottom: 1rem;
+}
+.payment-method-dropdown-textBox {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7rem;
+  background-color: #f7f7f7;
+  border: 2px solid #a1887f;
+  border-radius: 0.6rem 0.6rem 0 0;
+}
+.payment-method-dropdown-textBox span:not(:last-of-type) {
+  font-weight: 500;
+  font-size: 1.6rem;
+}
+.payment-method-dropdown-textBox > span:last-of-type {
+  transform: scale(2);
+  color: #5d4037;
+}
+.payment-method-dropdown-textBox > span:last-of-type:hover {
+  cursor: pointer;
+}
+.payment-method-dropdown ul li {
+  opacity: 0;
+  height: 0;
+  list-style-type: none;
+  padding: 0.5rem;
+  font-weight: 300;
+  font-size: 1.2rem;
+  background-color: #f7f7f7;
+  display: none;
+}
+.payment-method-dropdown ul li:hover {
+  color: #f7f7f7;
+  background-color: #5d4037;
+  cursor: pointer;
+}
+.payment-method-dropdown ul {
+  display: none;
+  opacity: 0;
+  height: 0;
+  border: 2px solid #a1887f;
+  border-top: none;
+}
