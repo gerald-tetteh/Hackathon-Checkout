@@ -26,6 +26,7 @@
   background-color: #f7f7f7;
   border: 2px solid #a1887f;
   border-radius: 0.6rem 0.6rem 0 0;
+  box-shadow: 5px 5px 2.5px rgba(0,0,0,0.5);
 }
 .payment-method-dropdown-textBox span:not(:last-of-type) {
   font-weight: 500;
@@ -59,4 +60,5 @@
   height: 0;
   border: 2px solid #a1887f;
   border-top: none;
+  box-shadow: 5px 5px 2.5px rgba(0,0,0,0.5);
 }

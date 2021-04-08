@@ -1,0 +1,43 @@
+/* 
+  Author: Gerald Addo-Tetteh
+  Checkout App
+*/
+/* Checkout Page CSS */
+
+.checkout-page {
+  margin: auto;
+  max-width: 600px;
+  width: 100%;
+}
+.checkout-page label {
+  font-family: 'Quicksand', sans-serif;
+  font-size: medium;
+  color: #795548;
+  font-weight: 700;
+}
+.checkout-page input[type="text"] {
+  display: inline-block;
+  width: 100%;
+  padding: 1rem 1rem;
+  border-radius: 5px;
+  border: 2px solid #795548;
+  margin-bottom: 1rem;
+}
+.checkout-page input[type="text"]:focus {
+  border: 2px solid #795548;
+  outline: none;
+}
+.input-horizontal {
+  display: flex;
+}
+.input-horizontal--item input {
+  width: 90%;
+  padding: 1rem 1rem;
+  border-radius: 5px;
+  border: 2px solid #795548;
+  margin-bottom: 1rem;
+}
+.input-horizontal--item input:focus {
+  border: 2px solid #795548;
+  outline: none;
+}
