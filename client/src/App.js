@@ -12,6 +12,7 @@ import PaymentMethod from "./pages/PaymentMethod";
 import SnackBar from "./components/SnackBar";
 import Navbar from "./components/Navbar";
 import { SnackbarStore } from "./providers/Store";
+import CheckoutPage from "./pages/CheckoutPage";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route exact path="/payment-method">
             <PaymentMethod />
+          </Route>
+          <Route exact path="/checkout/:mode">
+            <CheckoutPage />
           </Route>
         </Switch>
         <div className="spacer"></div>
