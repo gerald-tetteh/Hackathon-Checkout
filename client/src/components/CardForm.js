@@ -46,7 +46,10 @@ const CardForm = () => {
 
   const handleValidateInput = () => {
     let error = false;
-    if (!Payment.fns.validateCardNumber(cardNumber)) {
+    if (
+      !Payment.fns.validateCardNumber(cardNumber) &&
+      !Object.keys(cardTypes).includes(highlightCard)
+    ) {
       cardNumberRef.current.classList.add("error-border");
       error = true;
     } else {
@@ -95,7 +98,6 @@ const CardForm = () => {
       },
     })
       .then((res) => {
-        console.log(res.status);
         if (res.ok) {
           return res.text();
         }

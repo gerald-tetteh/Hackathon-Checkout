@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 
 import "../css/checkoutPage.css";
 import CardForm from "../components/CardForm";
+import MobileMoneyForm from "../components/MobileMoneyForm";
 
 const CheckoutPage = () => {
   const { mode } = useParams();
@@ -21,6 +22,9 @@ const CheckoutPage = () => {
       className="checkout-page"
     >
       {mode === "Card" && <CardForm />}
+      {mode.includes("Mobile") && (
+        <MobileMoneyForm network={mode.split(",")[1]} />
+      )}
     </motion.div>
   );
 };
