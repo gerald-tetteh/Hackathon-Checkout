@@ -15,7 +15,7 @@ const SnackBar = () => {
     if (showSnackbar) {
       setTimeout(() => {
         setShowSnackbar(false);
-      }, 1000);
+      }, 2000);
     }
   }, [showSnackbar]);
 

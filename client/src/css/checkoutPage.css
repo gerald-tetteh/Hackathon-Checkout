@@ -1,0 +1,80 @@
+/* 
+  Author: Gerald Addo-Tetteh
+  Checkout App
+*/
+/* Checkout Page CSS */
+
+/* Global checkout page */
+.checkout-page {
+  margin: auto;
+  max-width: 600px;
+  width: 100%;
+}
+.checkout-page label {
+  font-family: 'Quicksand', sans-serif;
+  font-size: medium;
+  color: #795548;
+  font-weight: 700;
+}
+.checkout-page input[type="text"] {
+  display: inline-block;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 2px solid #795548;
+  margin-bottom: 1rem;
+}
+.checkout-page input[type="text"]:focus {
+  border: 2px solid #795548;
+  outline: none;
+}
+.input-horizontal {
+  display: flex;
+}
+.input-horizontal--item input {
+  width: 90%;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 2px solid #795548;
+  margin-bottom: 1rem;
+}
+.input-horizontal--item input:focus {
+  border: 2px solid #795548;
+  outline: none;
+}
+.checkout-page input.error-border, .checkout-page input.error-border:focus {
+  border: 2px solid red
+}
+
+/* payment option images */
+.checkout-page-image-container {
+  display: flex;
+  justify-content: space-around;
+}
+.checkout-page--image {
+  max-width: 50px;
+  width: 100%;
+  transition: all 0.7s;
+}
+.checkout-page--image-single {
+  max-width: 200px;
+  width: 100%;
+}
+.select-image {
+  border: 2px solid green;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+@media only screen and (min-width: 600px) {
+  .checkout-page input[type="text"], .input-horizontal--item input {
+    font-size: 1rem;
+    padding: 0.7rem;
+  }
+  .checkout-page--image {
+    max-width: 100px;
+  }
+  .checkout-page label {
+    font-size: 1.6rem;
+  }
+}
