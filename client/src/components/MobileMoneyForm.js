@@ -9,11 +9,17 @@ import Loader from "react-loader-spinner";
 
 import FormSubmitButton from "../components/FormSubmitButton";
 import { SnackbarContext } from "../providers/Store";
+import useFetch from "../utils/handleFetch";
+
+import vodafoneIcon from "../assets/vodafone_icon.png";
+import mtnIcon from "../assets/mtn_icon.png";
+import airtelIcon from "../assets/airtel_icon.png";
 
 const MobileMoneyForm = ({ network }) => {
   const [, setShowSnackbar, , setSnackbarText] = useContext(SnackbarContext);
   const [mobileNumber, setMobileNumber] = useState("+233");
   const [showLoading, setShowLoading] = useState(false);
+  const setUrl = useFetch(setShowLoading);
 
   const inputRef = useRef();
 
@@ -22,7 +28,6 @@ const MobileMoneyForm = ({ network }) => {
     const lastItem = string[index];
     setMobileNumber(`${startString} ${lastItem}`);
   };
-
   const handleSetMobileNumber = (value) => {
     value = value.trim();
     if (value.length === 17) {
@@ -44,13 +49,16 @@ const MobileMoneyForm = ({ network }) => {
       setMobileNumber(value);
     }
   };
-
   const handleCheckNetworkCode = (networkCodes, number) => {
     const networkCode = number.slice(4, 6);
     if (!networkCodes.includes(networkCode)) {
       return true;
     }
     return false;
+  };
+  const handleBuildUrl = (number) => {
+    const orderId = (Math.random() * 1000).toFixed(0);
+    return `https://www.paybox.com.co/pay?amount=20.99&currency=GHS&mode=Mobile Money&mobile_network=${network}&mobile_number=${number}&payload={}&order_id=PB_${orderId}`;
   };
 
   const handleFormSubmit = (e) => {
@@ -76,10 +84,10 @@ const MobileMoneyForm = ({ network }) => {
       setSnackbarText("Invalid Mobile Number");
       setShowSnackbar(true);
       setShowLoading(false);
-    } else {
-      setShowLoading(false);
-      inputRef.current.classList.remove("error-border");
+      return;
     }
+    inputRef.current.classList.remove("error-border");
+    setUrl(handleBuildUrl(number));
   };
 
   return (
@@ -89,6 +97,29 @@ const MobileMoneyForm = ({ network }) => {
       onSubmit={handleFormSubmit}
     >
       <div className="mobile-money-form">
+        <div className="checkout-page-image-container">
+          {network === "Vodafone" && (
+            <img
+              src={vodafoneIcon}
+              alt={`${network}`}
+              className="checkout-page--image-single"
+            />
+          )}
+          {network === "Mtn" && (
+            <img
+              src={mtnIcon}
+              alt={`${network}`}
+              className="checkout-page--image-single"
+            />
+          )}
+          {network === "AirtelTigo" && (
+            <img
+              src={airtelIcon}
+              alt={`${network}`}
+              className="checkout-page--image-single"
+            />
+          )}
+        </div>
         <label htmlFor="mobile-number">Mobile Number</label>
         <input
           ref={inputRef}

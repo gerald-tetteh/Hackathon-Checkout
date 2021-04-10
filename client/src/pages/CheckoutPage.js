@@ -13,7 +13,6 @@ import MobileMoneyForm from "../components/MobileMoneyForm";
 
 const CheckoutPage = () => {
   const { mode } = useParams();
-  console.log(mode);
   return (
     <motion.div
       initial={{ opacity: 0 }}

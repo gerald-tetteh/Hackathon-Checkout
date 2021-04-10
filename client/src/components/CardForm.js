@@ -5,11 +5,11 @@
 */
 
 import { useEffect, useRef, useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
 import Payment from "payment";
 import FormSubmitButton from "./FormSubmitButton";
 import Loader from "react-loader-spinner";
 import { SnackbarContext } from "../providers/Store";
+import useFetch from "../utils/handleFetch";
 
 import visaImage from "../assets/visa.png";
 import mastercardImage from "../assets/mastercard.png";
@@ -17,7 +17,6 @@ import discoverImage from "../assets/discover.png";
 import amexImage from "../assets/american-express.png";
 
 const CardForm = () => {
-  const history = useHistory();
   const [, setShowSnackbar, , setSnackbarText] = useContext(SnackbarContext);
   const [cardNumber, setCardNumber] = useState("");
   const [cardHolder, setCardHolder] = useState("");
@@ -25,6 +24,7 @@ const CardForm = () => {
   const [cvc, setCvc] = useState("");
   const [highlightCard, setHighlightCard] = useState("");
   const [showLoading, setShowLoading] = useState(false);
+  const setUrl = useFetch(setShowLoading);
 
   const cardNumberRef = useRef();
   const cardHolderRef = useRef();
@@ -84,36 +84,14 @@ const CardForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setShowLoading(true);
     const error = handleValidateInput();
     if (error) {
       setSnackbarText("Invalid Inputs");
       setShowSnackbar(true);
       return;
     }
-    setShowLoading(true);
-    fetch(handleBuildUrl(), {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_USER_TOKEN}`,
-      },
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.text();
-        }
-        throw new Error("Could not complete transaction");
-      })
-      .then((data) => {
-        setShowLoading(false);
-        setSnackbarText("Transaction Complete");
-        setShowSnackbar(true);
-        history.push("/");
-      })
-      .catch((err) => {
-        setShowLoading(false);
-        setSnackbarText(err.message);
-        setShowSnackbar(true);
-      });
+    setUrl(handleBuildUrl());
   };
 
   return (
