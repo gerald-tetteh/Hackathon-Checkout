@@ -60,7 +60,6 @@ const MobileMoneyForm = ({ network }) => {
     const orderId = (Math.random() * 1000).toFixed(0);
     return `https://www.paybox.com.co/pay?amount=20.99&currency=GHS&mode=Mobile Money&mobile_network=${network}&mobile_number=${number}&payload={}&order_id=PB_${orderId}`;
   };
-
   const handleFormSubmit = (e) => {
     e.preventDefault();
     setShowLoading(true);
