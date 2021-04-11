@@ -24,7 +24,7 @@ const CardForm = () => {
   const [cvc, setCvc] = useState("");
   const [highlightCard, setHighlightCard] = useState("");
   const [showLoading, setShowLoading] = useState(false);
-  const setUrl = useFetch(setShowLoading);
+  const setUrl = useFetch(setShowLoading, "/payment/card");
 
   const cardNumberRef = useRef();
   const cardHolderRef = useRef();
