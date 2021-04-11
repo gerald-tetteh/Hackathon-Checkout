@@ -16,7 +16,7 @@ const PaymentMethod = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("Select Method");
   const [modeAndNetwork, setModeAndNetwork] = useState("");
-  const [, setShowSnackbar] = useContext(SnackbarContext);
+  const [, setShowSnackbar, , setSnackbarText] = useContext(SnackbarContext);
   const listControls = useAnimation();
   const arrowControls = useAnimation();
 
@@ -97,7 +97,10 @@ const PaymentMethod = () => {
         <DefaultButton
           to="#"
           text="Next &#8594;"
-          onClick={() => setShowSnackbar(true)}
+          onClick={() => {
+            setSnackbarText("Please select a payment method");
+            setShowSnackbar(true);
+          }}
         />
       )}
     </motion.div>

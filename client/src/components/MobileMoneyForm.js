@@ -19,7 +19,7 @@ const MobileMoneyForm = ({ network }) => {
   const [, setShowSnackbar, , setSnackbarText] = useContext(SnackbarContext);
   const [mobileNumber, setMobileNumber] = useState("+233");
   const [showLoading, setShowLoading] = useState(false);
-  const setUrl = useFetch(setShowLoading);
+  const setUrl = useFetch(setShowLoading, "/payment/mobile-money");
 
   const inputRef = useRef();
 

@@ -15,7 +15,7 @@ const BankForm = () => {
   const [accountNumber, setAccountNumber] = useState("");
   const [accountPin, setAccountPin] = useState("");
   const [showLoading, setShowLoading] = useState(false);
-  const setUrl = useFetch(setShowLoading);
+  const setUrl = useFetch(setShowLoading, "/payment/bank");
 
   const bankNameRef = useRef();
   const accountNumberRef = useRef();

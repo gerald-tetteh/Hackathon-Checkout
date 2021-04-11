@@ -11,7 +11,7 @@ import { useHistory } from "react-router-dom";
 
 import { SnackbarContext } from "../providers/Store";
 
-const useFetch = (setShowLoading) => {
+const useFetch = (setShowLoading, postUrl) => {
   const history = useHistory();
   const [, setShowSnackbar, , setSnackbarText] = useContext(SnackbarContext);
   const [url, setUrl] = useState(null);
@@ -20,12 +20,13 @@ const useFetch = (setShowLoading) => {
     // abort controller
     const abortController = new AbortController();
     if (url) {
-      fetch(url, {
+      fetch(postUrl, {
         signal: abortController.signal,
         method: "POST",
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_USER_TOKEN}`,
-        },
+        body: JSON.stringify({
+          path: url,
+        }),
+        headers: { "Content-Type": "application/json" },
       })
         .then((res) => {
           if (res.ok) {
@@ -33,7 +34,7 @@ const useFetch = (setShowLoading) => {
           }
           throw new Error("Could not complete transaction");
         })
-        .then((data) => {
+        .then((_) => {
           setShowLoading(false);
           setSnackbarText("Transaction Complete");
           setShowSnackbar(true);
