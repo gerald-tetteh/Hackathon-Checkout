@@ -4,13 +4,15 @@
   Bank Form
 */
 
-import { useRef, useState } from "react";
+import { useRef, useState, useContext } from "react";
 import useFetch from "../utils/handleFetch";
 import Loader from "react-loader-spinner";
+import { SnackbarContext } from "../providers/Store";
 
 import FormSubmitButton from "../components/FormSubmitButton";
 
 const BankForm = () => {
+  const [, setShowSnackbar, , setSnackbarText] = useContext(SnackbarContext);
   const [bankName, setBankName] = useState("");
   const [accountNumber, setAccountNumber] = useState("");
   const [accountPin, setAccountPin] = useState("");
@@ -69,7 +71,9 @@ const BankForm = () => {
     setShowLoading(true);
     const error = handleValidateInput();
     if (error) {
+      setSnackbarText("Invalid Inputs");
       setShowLoading(false);
+      setShowSnackbar(true);
       return;
     }
     setUrl(handleBuildUrl());

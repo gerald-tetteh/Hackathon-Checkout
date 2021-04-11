@@ -9,10 +9,14 @@ This is the repository for a checkout web application; **HackaWood**, built with
 </p>
 
 ## Larger Screen Images
-<img width="1000" height="1334" src="images/home_page_screenshot.png">
+<p align="center">
+  <img width="100%" height="auto" style="max-width:400;" src="images/home_page_screenshot.png">
+</p>
 
 ## Desktop Screenshots
-<img width="1000" height="791" src="images/bank_form.png">
+<p align="center">
+  <img width="100%" height="auto" style="max-width:400;" src="images/bank_form.png">
+</p>
 
 # How to use HackaWood
 
@@ -139,6 +143,7 @@ The code above is specific to the card payment method.
 
 ---
 ##### Developer
-* Email: addodevelop@gmail.com || gerald.tetteh@ashesi.edu.gh
+* Work email: addodevelop@gmail.com
+* School email: gerald.tetteh@ashesi.edu.gh
 * [Website](https://gerald-addo.herokuapp.com)
 * [LinkedIn](https://www.linkedin.com/in/gerald-addo-tetteh-a28101182)

@@ -89,6 +89,7 @@ const CardForm = () => {
     if (error) {
       setSnackbarText("Invalid Inputs");
       setShowSnackbar(true);
+      setShowLoading(false);
       return;
     }
     setUrl(handleBuildUrl());
