@@ -1,19 +1,19 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "HackaWood",
+  "name": "A simple checkout app create with react for the PayBox Hackathon",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "app-icon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "app-icon192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "app-icon.png",
       "type": "image/png",
       "sizes": "512x512"
     }
