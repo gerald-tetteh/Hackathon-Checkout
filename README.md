@@ -37,6 +37,7 @@ The communication with the PayBox API occurs on the backend. There are three rou
   * The users payment credentials are sent to the backend as a JSON object.
   * The data is decoded using the express body parser.
   * The [request](https://github.com/request/request#readme) package was used to send post requests from the express server.
+
 ```javascript
 // Express JSON body parser
 app.use(express.json());
@@ -62,10 +63,12 @@ const makeRequest = (req, res) => {
   );
 };
 ```
+
 From the request is authenticated using a bearer token.
 
 #### React Frontend
 Requests are sent to the express backend using the fetch API from the React.
+
 
 ```javascript
 const useFetch = (setShowLoading, postUrl) => {
