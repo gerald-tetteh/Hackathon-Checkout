@@ -58,9 +58,9 @@ const PaymentMethod = () => {
   };
 
   const listItems = [
-    { id: "Mobile Money,Vodafone", text: "MobileMoney: Vodafone" },
-    { id: "Mobile Money,AirtelTigo", text: "MobileMoney: AirtelTigo" },
-    { id: "Mobile Money,Mtn", text: "MobileMoney: Mtn" },
+    { id: "Mobile Money,Vodafone", text: "Vodafone Cash" },
+    { id: "Mobile Money,AirtelTigo", text: "AirtelTigo Cash" },
+    { id: "Mobile Money,Mtn", text: "Mtn Mobile Money" },
     { id: "Card", text: "Debit/Credit Card" },
     { id: "Bank", text: "Bank Transaction" },
   ];
