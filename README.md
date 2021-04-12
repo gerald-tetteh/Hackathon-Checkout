@@ -1,6 +1,6 @@
 # Hackathon Checkout App _by_ Gerald Addo-Tetteh
 
-This is the repository for a checkout web application; **HackaWood**, built with React and Express. The application uses the [PayBox](https://paybox.com.co). The application allows business owners to receive payments online through mobile money (MTN, Vodafone Cash), bank transactions and with a credit or debit card. The [PayBox](https://paybox.com.co) API provides more payment options such as crypto currency. The application is hosted on Heroku ([view page](https://hackawood.herokuapp.com)).
+This is the repository for a checkout web application; **HackaWood**, built with React and Express. The application uses the [PayBox](https://paybox.com.co) API, which allows business owners to receive payments online through MTN Mobile Money, Vodafone Cash, bank transactions and with a credit or debit card. The [PayBox](https://paybox.com.co) API provides more payment options such as cryptocurrency. The application is hosted on Heroku ([view page](https://hackawood.herokuapp.com)).
 
 ## Mobile Screenshots
 <p align="center">
@@ -23,17 +23,17 @@ This is the repository for a checkout web application; **HackaWood**, built with
 1. Visit the hosted site [here](https://hackawood.herokuapp.com).
 1. The home page shows items that have been added to the cart automatically.
 1. Click on "Proceed" to continue.
-1. You will be navigated to a page that asks you to choose your payment method. The methods available are MTN mobile money, Vodafone Cash and AirtelTigo.
+1. You will be navigated to a page that asks you to choose your preferred payment method. The methods available are MTN Mobile Money, Vodafone Cash and AirtelTigo Money.
 1. You need to select a payment method before you can proceed.
-1. The next screen will show you a form corresponding to the payment method to selected before.
+1. The next screen will show you a form corresponding to the payment method you selected before.
 1. With that you are done.
 
 # How it Works
 
-The application uses Express and node as the backend and React for the front-end.
+The application uses Express and Node as the backend and React for the front-end.
 
 #### Express Backend
-The communication with the PayBox API occurs on the backend. There are three routes in total which send post requests to PayBox based on the selected payment option. They are: 
+The communication with the PayBox API occurs on the backend. There are three routes in total which send post requests to PayBox based on the selected payment option. They are:
 * Card (/payment/card)
 * Mobile Money (/payment/mobile-money)
 * Bank (/payment/bank)
@@ -68,10 +68,10 @@ const makeRequest = (req, res) => {
 };
 ```
 
-From the request is authenticated using a bearer token.
+The request is authenticated using a bearer token.
 
 #### React Frontend
-Requests are sent to the express backend using the fetch API from the React.
+Requests are sent to the express backend using the fetch API from the React front-end.
 
 
 ```javascript
@@ -119,7 +119,7 @@ const useFetch = (setShowLoading, postUrl) => {
 };
 ```
 
-The code above shows a custom Hook "useFetch". The Hook handles sending data to the backend and determining if the request was successful. The Hook requires two parameters "setShowLoading" and "postUrl". The first parameter is used to show or hide a loading widget. The second parameter is the URL that is used access the the PayBox API. The URL is built using the credentials the users entered and the mode of payment.
+The code above shows a custom Hook "useFetch". The Hook handles sending data to the backend and determining if the request was successful. The Hook requires two parameters "setShowLoading" and "postUrl". The first parameter is used to show or hide a loading widget. The second parameter is the URL that is used to access the PayBox API. The URL is built using the credentials the user entered and the mode of payment.
 
 ```javascript
 const handleBuildUrl = () => {
@@ -147,3 +147,15 @@ The code above is specific to the card payment method.
 * School email: gerald.tetteh@ashesi.edu.gh
 * [Website](https://gerald-addo.herokuapp.com)
 * [LinkedIn](https://www.linkedin.com/in/gerald-addo-tetteh-a28101182)
+
+### For Developers
+
+Fork this repository and clone it to your device. Then run the commands below.
+
+```bash
+cd Hackathon-Checkout
+cd server && npm install
+node app.js
+cd .. && cd client && npm install
+npm start
+```
